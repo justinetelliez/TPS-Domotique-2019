@@ -1,0 +1,97 @@
+html, body  {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+}
+
+body  {
+  display: flex;
+  flex-direction:column;
+  justify-content: space-between;
+}
+
+body>div  {
+  height : 69%;
+}
+
+header, footer {
+  background-color: #2980b9;
+}
+
+html {
+  background-color: #95a5a6;
+}
+
+header {
+  color: white;
+}
+
+footer {
+  color: white;
+  height: 40px;
+}
+
+p,h3,h1,button  {
+  margin: 10px;
+}
+
+#content {
+  display: flex;
+  justify-content: space-around;
+  align-content: stretch;
+}
+
+header>div{
+  display: flex;
+}
+
+.box {
+  border: solid;
+  border-radius: 10px;
+  flex-grow: 1;
+  margin: 4px;
+  background-color: #ecf0f1;
+}
+
+header>div>h1 {
+  margin-top:1em;
+  margin-bottom:1em;
+}
+
+#robot{
+  flex-basis: 100%;
+  height : 100%;
+  display : flex;
+  justify-content: space-between ;
+}
+
+#unistra_logo {
+  height: 15%;
+  width: 15%;
+}
+
+#robotDiv {
+  display: flex;
+}
+
+.button {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #595a61;
+  padding: 20px;
+  border-radius: 10px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
+
+.button:hover {
+  text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+  transition: all 0.4s ease 0s;
+}
+#stopAlarm{
+  background: #94210d;
+}

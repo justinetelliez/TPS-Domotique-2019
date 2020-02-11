@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Gestion Maison</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div>
+    <header>
+      <div>
+        <h1>Web Gateway <!-- la maison de Mickey --></h1>
+        <img class="unistra_logo" src="{{ url_for('static', filename='UnistraLogo.png') }}" alt="logo Unistra">
+      </div>
+    </header>
+    <div id="content">
+      <div class="box">
+        <h3>Zigduino</h3>
+        <p id="lum">Lumière : </p>
+        <button class="button" id="allumer" type="button" name="allumerLumiere">Allumer lumière</button>
+        <button class="button" id="eteindre" type="button" name="eteindreLumiere">Eteindre lumière</button>
+      </div>
+      <div class="box">
+        <h3>LoPy</h3>
+        <p>Nombre de mouvement : </p>
+        <p id="pysense">0</p>
+      </div>
+      <div class="box">
+        <h3>Gestion maison</h3>
+        <p id="intrusion"> Intrusion : </p> <button class="button" id="stopAlarm" type="button" name="stopAlarm">Eteindre l'alarme</button>
+      </div>
+
+
+    </div>
+    <div class="box" id="robot">
+      <div>
+        <p id="stopRobot"> Robot : </p>
+        <div id="robotDiv">
+          <p> Nombre de trajet : <p>
+          <p id="nbTrajRobot"> 0 </p>
+        </div>
+        <button class="button" id="zigInt" type="button" name="zigInt">Zigduino</button>
+        <button class="button" id="pyInt" type="button" name="pyInt">PySense</button>
+        <button class="button" id="unblock" type="button" name="pyInt">Déblocage</button>
+      </div>
+      <div id="mapRobot"></div>
+      <img id="imgRobot" src="http://{{ip}}:8080/stream?topic=/camera/rgb/image_raw">
+    </div>
+  </div>
+  <footer>
+    <p>Site créé par Eva Ryckbosch, Lionel Sardo Viscuglia, Marie-Lou Brismontier et Jérémy Telliez. TPS©2019</p>
+
+  </footer>
+  </body>
+
+<script src="https://static.robotwebtools.org/EaselJS/current/easeljs.js"></script>
+<script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+<script type="text/javascript" src="https://static.robotwebtools.org/roslibjs/current/roslib.js"></script>
+<script type="text/javascript" src="https://static.robotwebtools.org/EventEmitter2/current/eventemitter2.js"></script>
+<script type="text/javascript" src="https://static.robotwebtools.org/ros2djs/current/ros2d.js"></script>
+
+<script type="text/javascript">
+  var ros = new ROSLIB.Ros({
+    url : 'ws://{{ip}}:9090'
+  });
+
+  // Variable permettant de savori si le robot est en train de traiter une interruption ou non
+  var inInterrupt = false;
+</script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='ros.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ url_for('static', filename='map.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='main.js')}}"></script>
+
+</html>
